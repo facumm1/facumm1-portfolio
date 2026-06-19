@@ -1,7 +1,7 @@
 "use client";
 
 import { SpotlightCard } from "@/components/ui/spotlight-card";
-import { hero, contact, currentlyBuilding } from "@/lib/data";
+import { hero, contact, currentlyBuilding, currentlyWorking } from "@/lib/data";
 
 export function HeroCard() {
   return (
@@ -17,7 +17,7 @@ export function HeroCard() {
           <span className="text-xs text-muted">{hero.location}</span>
         </div>
 
-        <h1 className="mt-4 font-heading text-5xl font-extrabold tracking-tight text-foreground leading-[1.05]">
+        <h1 className="mt-4 font-heading text-5xl font-medium tracking-tight text-foreground leading-[1.05]">
           {hero.name}
         </h1>
         <p className="mt-2 text-base font-medium text-muted">{hero.role}</p>
@@ -25,11 +25,20 @@ export function HeroCard() {
       </div>
 
       <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
-        <div className="flex items-center gap-2 text-xs text-muted/60">
-          <span className="h-1.5 w-1.5 rounded-full bg-amber-500 animate-pulse" />
-          Building{" "}
-          <span className="font-medium text-foreground/70">{currentlyBuilding.name}</span>
-          <span className="text-muted/40">— {currentlyBuilding.status}</span>
+        <div className="flex flex-col gap-2">
+          <div className="flex items-center gap-2 text-xs text-muted/60">
+            <span className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse" />
+            Currently working for{" "}
+            <span className="font-medium text-foreground/70">{currentlyWorking.name}</span>
+          </div>
+
+          <div className="flex items-center gap-2 text-xs text-muted/60">
+            <span className="h-1.5 w-1.5 rounded-full bg-amber-500 animate-pulse" />
+
+            Freelancing for{" "}
+            <span className="font-medium text-foreground/70">{currentlyBuilding.name}</span>
+            <span className="text-muted/40">— {currentlyBuilding.status}</span>
+          </div>
         </div>
 
         <div className="flex items-center gap-2">

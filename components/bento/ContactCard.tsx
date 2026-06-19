@@ -35,7 +35,7 @@ export function ContactCard() {
           </p>
         </div>
 
-        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
+        <div className="flex flex-col gap-2">
           {links.map((link) => (
             <a
               key={link.label}

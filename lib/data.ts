@@ -18,10 +18,15 @@ export const stack = {
   tools: ["Git", "Figma", "Jira", "Claude Code", "Bugsnag"],
 };
 
-export const currentlyBuilding = {
-  name: "Klik",
+export const currentlyWorking = {
+  name: "Underqubit",
   description: "Multi-tenant SaaS platform for the gastronomy sector.",
-  status: "Pre-launch · ~1 month to production",
+}
+
+export const currentlyBuilding = {
+  name: "Menu Propio",
+  description: "Multi-tenant SaaS platform for the gastronomy sector.",
+  status: "Pre-launch in 1 month",
   stack: ["Next.js", "Firebase", "Docker"],
 };
 
