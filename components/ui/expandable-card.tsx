@@ -5,19 +5,29 @@ import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import type { Experience } from "@/lib/data";
 import { ImageCarousel } from "@/components/ui/image-carousel";
+import { useLanguage } from "@/contexts/language-context";
+
+interface ExperienceTranslations {
+  shortDescription: string;
+  description: string;
+  bullets: readonly string[];
+}
 
 interface ExperienceExpandableCardProps {
   experience: Experience;
+  translations: ExperienceTranslations;
   children: React.ReactNode;
   className?: string;
 }
 
 export function ExperienceExpandableCard({
   experience,
+  translations,
   children,
   className,
 }: ExperienceExpandableCardProps) {
   const [open, setOpen] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -41,7 +51,6 @@ export function ExperienceExpandableCard({
       <AnimatePresence>
         {open && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -51,7 +60,6 @@ export function ExperienceExpandableCard({
               onClick={() => setOpen(false)}
             />
 
-            {/* Modal */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 8 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -61,7 +69,7 @@ export function ExperienceExpandableCard({
             >
               <button
                 onClick={() => setOpen(false)}
-                className="absolute right-4 top-4 z-20 flex h-8 w-8 items-center justify-center rounded-full bg-foreground/20 text-muted transition-colors hover:bg-foreground/40 hover:text-foreground"
+                className="absolute left-4 top-4 z-20 flex h-8 w-8 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-sm transition-colors hover:bg-black/70"
                 aria-label="Close"
               >
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
@@ -85,7 +93,6 @@ export function ExperienceExpandableCard({
                   </div>
                   <div className="flex flex-col items-end gap-1.5 shrink-0">
                     <span className="text-xs text-muted">{experience.period}</span>
-
                     <span
                       className={cn(
                         "rounded-full px-2 py-0.5 text-xs font-medium",
@@ -94,14 +101,14 @@ export function ExperienceExpandableCard({
                           : "bg-violet-500/10 text-violet-500"
                       )}
                     >
-                      {experience.type}
+                      {experience.type === "Full-time" ? t.ui.fullTime : t.ui.freelance}
                     </span>
                   </div>
                 </div>
 
-                {experience.links &&
+                {experience.links && (
                   <div className="my-4 flex flex-wrap gap-1.5">
-                    {experience.links?.map((link) => (
+                    {experience.links.map((link) => (
                       <a
                         key={link.url}
                         href={link.url}
@@ -115,14 +122,14 @@ export function ExperienceExpandableCard({
                       </a>
                     ))}
                   </div>
-                }
+                )}
 
                 <p className="mt-1 text-sm leading-relaxed text-muted">
-                  {experience.description}
+                  {translations.description}
                 </p>
 
                 <ul className="mt-4 space-y-2.5">
-                  {experience.bullets.map((bullet, i) => (
+                  {translations.bullets.map((bullet, i) => (
                     <li key={i} className="flex gap-3 text-sm text-foreground/80">
                       <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-foreground/30" />
                       {bullet}
@@ -132,10 +139,7 @@ export function ExperienceExpandableCard({
 
                 <div className="mt-5 flex flex-wrap gap-1.5">
                   {experience.stack.map((tech) => (
-                    <span
-                      key={tech}
-                      className="rounded-md bg-muted-bg px-2.5 py-1 text-xs text-muted"
-                    >
+                    <span key={tech} className="rounded-md bg-muted-bg px-2.5 py-1 text-xs text-muted">
                       {tech}
                     </span>
                   ))}

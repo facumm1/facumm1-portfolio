@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -17,15 +17,21 @@ const variants = {
   exit: (dir: number) => ({ x: dir > 0 ? "-100%" : "100%", opacity: 0 }),
 };
 
-export function ImageCarousel({ images, alt, className }: ImageCarouselProps) {
-  const [current, setCurrent] = useState(0);
-  const [direction, setDirection] = useState(0);
-
-  const go = (next: number) => {
-    setDirection(next > current ? 1 : -1);
-    setCurrent(next);
-  };
-
+function CarouselContent({
+  images,
+  alt,
+  current,
+  direction,
+  go,
+  fullscreen = false,
+}: {
+  images: string[];
+  alt: string;
+  current: number;
+  direction: number;
+  go: (next: number) => void;
+  fullscreen?: boolean;
+}) {
   const prev = (e: React.MouseEvent) => {
     e.stopPropagation();
     go((current - 1 + images.length) % images.length);
@@ -37,7 +43,7 @@ export function ImageCarousel({ images, alt, className }: ImageCarouselProps) {
   };
 
   return (
-    <div className={cn("relative w-full overflow-hidden bg-muted-bg", className)}>
+    <>
       <AnimatePresence initial={false} custom={direction}>
         <motion.div
           key={current}
@@ -49,7 +55,13 @@ export function ImageCarousel({ images, alt, className }: ImageCarouselProps) {
           transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
           className="absolute inset-0"
         >
-          <Image src={images[current]} alt={alt} fill className="object-contain" unoptimized />
+          <Image
+            src={images[current]}
+            alt={alt}
+            fill
+            className={cn("object-contain", fullscreen && "object-contain")}
+            unoptimized
+          />
         </motion.div>
       </AnimatePresence>
 
@@ -88,6 +100,81 @@ export function ImageCarousel({ images, alt, className }: ImageCarouselProps) {
           </div>
         </>
       )}
-    </div>
+    </>
+  );
+}
+
+export function ImageCarousel({ images, alt, className }: ImageCarouselProps) {
+  const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState(0);
+  const [fullscreen, setFullscreen] = useState(false);
+
+  const go = (next: number) => {
+    setDirection(next > current ? 1 : -1);
+    setCurrent(next);
+  };
+
+  useEffect(() => {
+    if (!fullscreen) return;
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setFullscreen(false);
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [fullscreen]);
+
+  return (
+    <>
+      <div className={cn("relative w-full overflow-hidden bg-muted-bg", className)}>
+        <CarouselContent images={images} alt={alt} current={current} direction={direction} go={go} />
+
+        <button
+          onClick={(e) => { e.stopPropagation(); setFullscreen(true); }}
+          className="absolute right-3 top-3 flex h-7 w-7 items-center justify-center rounded-full bg-black/40 text-white backdrop-blur-sm transition-colors hover:bg-black/60"
+          aria-label="View fullscreen"
+        >
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M8 3H5a2 2 0 00-2 2v3M21 8V5a2 2 0 00-2-2h-3M16 21h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3" />
+          </svg>
+        </button>
+      </div>
+
+      <AnimatePresence>
+        {fullscreen && (
+          <div className="fixed inset-0 z-[60] flex items-center justify-center">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="absolute inset-0 bg-black/90 backdrop-blur-sm"
+              onClick={() => setFullscreen(false)}
+            />
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.97 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.97 }}
+              transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="relative z-10 w-full h-full max-w-6xl max-h-screen p-10"
+            >
+              <div className="relative w-full h-full overflow-hidden">
+                <CarouselContent images={images} alt={alt} current={current} direction={direction} go={go} fullscreen />
+              </div>
+            </motion.div>
+
+            <button
+              onClick={() => setFullscreen(false)}
+              className="absolute right-5 top-5 z-20 flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
+              aria-label="Close fullscreen"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                <path d="M18 6L6 18M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

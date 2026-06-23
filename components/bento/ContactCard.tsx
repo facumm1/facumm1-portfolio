@@ -2,37 +2,23 @@
 
 import { SpotlightCard } from "@/components/ui/spotlight-card";
 import { contact } from "@/lib/data";
-
-const links = [
-  {
-    label: "GitHub",
-    value: contact.github,
-    href: contact.githubUrl,
-    icon: <GitHubIcon />,
-  },
-  {
-    label: "LinkedIn",
-    value: contact.linkedin,
-    href: contact.linkedinUrl,
-    icon: <LinkedInIcon />,
-  },
-  {
-    label: "Email",
-    value: contact.email,
-    href: `mailto:${contact.email}`,
-    icon: <MailIcon />,
-  },
-];
+import { useLanguage } from "@/contexts/language-context";
 
 export function ContactCard() {
+  const { t } = useLanguage();
+
+  const links = [
+    { label: "GitHub", value: contact.github, href: contact.githubUrl, icon: <GitHubIcon /> },
+    { label: "LinkedIn", value: contact.linkedin, href: contact.linkedinUrl, icon: <LinkedInIcon /> },
+    { label: "Email", value: contact.email, href: `mailto:${contact.email}`, icon: <MailIcon /> },
+  ];
+
   return (
     <SpotlightCard className="col-span-12 p-6 sm:p-8">
       <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <span className="text-xs font-medium text-muted uppercase tracking-wider">Get in touch</span>
-          <p className="mt-1.5 font-heading text-xl font-bold text-foreground">
-            Let&apos;s build something together.
-          </p>
+          <span className="text-xs font-medium text-muted uppercase tracking-wider">{t.ui.getInTouch}</span>
+          <p className="mt-1.5 font-heading text-xl font-bold text-foreground">{t.ui.letsBuild}</p>
         </div>
 
         <div className="flex flex-col gap-2">

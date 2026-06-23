@@ -17,6 +17,9 @@ const headingFont = Outfit({
 export const metadata: Metadata = {
   title: "Facundo Mamani — Fullstack Developer",
   description: "Fullstack Developer building web & mobile products.",
+  icons: {
+    icon: "/avatar.svg",
+  },
 };
 
 export default function RootLayout({

@@ -1,17 +1,40 @@
 "use client";
 
+import { useTheme } from "next-themes";
 import { SpotlightCard } from "@/components/ui/spotlight-card";
 import { hero, contact, currentlyBuilding, currentlyWorking } from "@/lib/data";
+import { useLanguage } from "@/contexts/language-context";
 
 export function HeroCard() {
+  const { theme, setTheme } = useTheme();
+  const { lang, setLang, t } = useLanguage();
+
   return (
     <SpotlightCard className="col-span-12 md:col-span-7 flex flex-col justify-between p-7 min-h-[240px]">
+      <div className="absolute right-4 top-4 flex items-center gap-2">
+        <button
+          onClick={() => setLang(lang === "en" ? "es" : "en")}
+          className="flex h-8 w-8 items-center justify-center rounded-lg border border-card-border bg-muted-bg text-xs font-medium text-muted transition-all hover:border-foreground/20 hover:text-foreground"
+          aria-label="Toggle language"
+        >
+          {lang === "en" ? "ES" : "EN"}
+        </button>
+        <button
+          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+          className="flex h-8 w-8 items-center justify-center rounded-lg border border-card-border bg-muted-bg text-muted transition-all hover:border-foreground/20 hover:text-foreground"
+          aria-label="Toggle theme"
+        >
+          <SunIcon className="hidden dark:block" />
+          <MoonIcon className="block dark:hidden" />
+        </button>
+      </div>
+
       <div>
         <div className="flex items-center gap-3">
           {hero.openToWork && (
             <span className="flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-600 dark:text-emerald-400">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              Open to work
+              {t.ui.openToWork}
             </span>
           )}
           <span className="text-xs text-muted">{hero.location}</span>
@@ -20,24 +43,23 @@ export function HeroCard() {
         <h1 className="mt-4 font-heading text-5xl font-medium tracking-tight text-foreground leading-[1.05]">
           {hero.name}
         </h1>
-        <p className="mt-2 text-base font-medium text-muted">{hero.role}</p>
-        <p className="mt-3 max-w-sm text-sm text-foreground/65 leading-relaxed">{hero.description}</p>
+        <p className="mt-2 text-base font-medium text-muted">{t.hero.role}</p>
+        <p className="mt-3 max-w-sm text-sm text-foreground/65 leading-relaxed">{t.hero.description}</p>
       </div>
 
       <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
         <div className="flex flex-col gap-2">
           <div className="flex items-center gap-2 text-xs text-muted/60">
             <span className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse" />
-            Currently working for{" "}
+            {t.ui.currentlyWorkingFor}{" "}
             <span className="font-medium text-foreground/70">{currentlyWorking.name}</span>
           </div>
 
           <div className="flex items-center gap-2 text-xs text-muted/60">
             <span className="h-1.5 w-1.5 rounded-full bg-amber-500 animate-pulse" />
-
-            Freelancing for{" "}
+            {t.ui.freelancingFor}{" "}
             <span className="font-medium text-foreground/70">{currentlyBuilding.name}</span>
-            <span className="text-muted/40">— {currentlyBuilding.status}</span>
+            <span className="text-muted/40">— {t.currentlyBuilding.status}</span>
           </div>
         </div>
 
@@ -64,11 +86,28 @@ export function HeroCard() {
             href={`mailto:${contact.email}`}
             className="rounded-lg bg-foreground px-4 py-1.5 text-sm font-medium text-background transition-opacity hover:opacity-80"
           >
-            Say hi →
+            {t.ui.sayHi}
           </a>
         </div>
       </div>
     </SpotlightCard>
+  );
+}
+
+function SunIcon({ className }: { className?: string }) {
+  return (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+      <circle cx="12" cy="12" r="4" />
+      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+    </svg>
+  );
+}
+
+function MoonIcon({ className }: { className?: string }) {
+  return (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+      <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+    </svg>
   );
 }
 
