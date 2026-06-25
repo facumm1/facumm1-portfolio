@@ -37,8 +37,9 @@ export const translations = {
     },
     experiences: {
       "exp-1": {
+        period: "07/2025 – Present",
         shortDescription: "Delivered features for Apprendemos, an EdTech platform with +10k active users.",
-        description: "Working across the full stack for Apprendemos, an EdTech platform serving over 10,000 active users. Built critical features including EPUB readers, offline support, and backoffice tooling.",
+        description: "Working for Apprendemos, an EdTech platform serving over 10,000 active users. Built critical features including EPUB readers, offline support, and backoffice tooling.",
         bullets: [
           "Delivered end-to-end features across mobile (React Native Expo) and web (+10k active users)",
           "Built EPUB readers (mobile and web) with annotations, highlights, and cross-device sync",
@@ -47,6 +48,7 @@ export const translations = {
         ],
       },
       "exp-2": {
+        period: "01/2026 – Present",
         shortDescription: "Built a multi-tenant SaaS platform for restaurants from scratch.",
         description: "A multi-tenant SaaS platform targeting the gastronomy sector. Two Next.js apps, Firebase-powered auth, and full CI/CD pipeline. Pre-launch in 1 month.",
         bullets: [
@@ -58,6 +60,7 @@ export const translations = {
         ],
       },
       "exp-3": {
+        period: "03/2024 – 01/2025",
         shortDescription: "Developed interactive UIs for an interactive entertainment platform.",
         description: "Worked on an interactive entertainment platform building custom UIs and integrations with real-time application data through Lua scripting.",
         bullets: [
@@ -66,6 +69,7 @@ export const translations = {
         ],
       },
       "exp-4": {
+        period: "07/2022 – 06/2023",
         shortDescription: "Built mobile features, auth flows, and deployment automation.",
         description: "Joined as the mobile developer for a React Native CLI app built for a fast food chain. The platform guided new employees through seasonal training plans — covering combo preparation, ice cream, and other menu items — with progress tracking to monitor their onboarding. Owned the OAuth integration with Okta, built out the Fastlane deployment pipeline, and handled production monitoring.",
         bullets: [
@@ -94,13 +98,13 @@ export const translations = {
       inProgress: "En progreso",
       experience: "Experiencia",
       getInTouch: "Contacto",
-      letsBuild: "Construyamos algo juntos.",
+      letsBuild: "¿Tenés un proyecto en mente? Hablemos.",
       clickToExpand: "Click para expandir →",
       sayHi: "Saludar →",
-      techStack: "Stack tecnológico",
+      techStack: "Tech Stack",
       openToWork: "Disponible",
       currentlyWorkingFor: "Actualmente trabajando en",
-      freelancingFor: "Freelanceando en",
+      freelancingFor: "Freelance en",
       fullTime: "Tiempo completo",
       freelance: "Freelance",
       frontend: "Frontend",
@@ -113,24 +117,26 @@ export const translations = {
       description: "Construyendo productos web y móviles que la gente usa.",
     },
     about: {
-      text: "Desarrollador Fullstack con 3 años de experiencia construyendo aplicaciones web y móviles, con fuerte enfoque en frontend. Actualmente estudiando Ingeniería en Informática en la UBA (FIUBA). Avanzando hacia arquitectura de software y buenas prácticas de ingeniería. Reconocido por conectar la implementación técnica con las necesidades del usuario, traduciendo soluciones complejas en resultados claros y comprensibles para los clientes.",
+      text: "Desarrollador Fullstack con 3 años de experiencia construyendo aplicaciones web y mobile, con foco en frontend. Actualmente estudiando Ingeniería Informática en la UBA. Con interés en arquitectura de software y la experiencia de usuario. Me caracterizo por traducir complejidad técnica en valor concreto para el cliente."
     },
     currentlyBuilding: {
       description: "Plataforma SaaS multi-tenant para el sector gastronómico.",
-      status: "Pre-lanzamiento en 1 mes",
+      status: "Pre-launch en 1 mes",
     },
     experiences: {
       "exp-1": {
+        period: "07/2025 – Actualidad",
         shortDescription: "Desarrollé funcionalidades para Apprendemos, una plataforma EdTech con +10k usuarios activos.",
-        description: "Trabajando en el stack completo de Apprendemos, una plataforma EdTech con más de 10.000 usuarios activos. Construí funcionalidades críticas incluyendo lectores EPUB, soporte offline y herramientas de backoffice.",
+        description: "Actualmente trabajando en Apprendemos, una plataforma EdTech con más de 10.000 usuarios activos. Algunas de mis contribuciones fueron:",
         bullets: [
-          "Desarrollé funcionalidades end-to-end en mobile (React Native Expo) y web (+10k usuarios activos)",
-          "Construí lectores EPUB (mobile y web) con anotaciones, highlights y sincronización entre dispositivos",
+          "Desarrollé funcionalidades en mobile (React Native Expo) y web",
+          "Construí actividades de lectura (ePubs) con anotaciones, subrayados y sincronización entre dispositivos",
           "Integré modo offline en la plataforma web usando service workers y cache storage",
-          "Extendí funcionalidades del backoffice (Next.js) y servicios backend (NestJS, MongoDB, arquitectura hexagonal)",
+          "Extendí funcionalidades del backoffice y servicios backend (NestJS, MongoDB, arquitectura hexagonal)",
         ],
       },
       "exp-2": {
+        period: "01/2026 – Actualidad",
         shortDescription: "Construí una plataforma SaaS multi-tenant para restaurantes desde cero.",
         description: "Una plataforma SaaS multi-tenant orientada al sector gastronómico. Dos aplicaciones Next.js, autenticación con Firebase y pipeline completo de CI/CD. Pre-lanzamiento en 1 mes.",
         bullets: [
@@ -142,6 +148,7 @@ export const translations = {
         ],
       },
       "exp-3": {
+        period: "03/2024 – 01/2025",
         shortDescription: "Desarrollé UIs interactivas para una plataforma de entretenimiento.",
         description: "Trabajé en una plataforma de entretenimiento interactivo construyendo UIs personalizadas e integraciones con datos de la aplicación en tiempo real mediante scripting Lua.",
         bullets: [
@@ -150,6 +157,7 @@ export const translations = {
         ],
       },
       "exp-4": {
+        period: "07/2022 – 06/2023",
         shortDescription: "Construí funcionalidades mobile, flujos de auth y automatización de despliegue.",
         description: "Me uní como desarrollador mobile de una app React Native CLI construida para una cadena de comida rápida. La plataforma guiaba a nuevos empleados en planes de capacitación estacionales — preparación de combos, helados y otros ítems del menú — con seguimiento de progreso para monitorear su incorporación. Estuve a cargo de la integración OAuth con Okta, el pipeline de despliegue con Fastlane y el monitoreo en producción.",
         bullets: [
@@ -161,8 +169,8 @@ export const translations = {
       },
     },
     education: [
-      { degree: "Ingeniería en Informática", institution: "Universidad de Buenos Aires – FIUBA", period: "2024 – Presente" },
-      { degree: "Técnico en Electrónica", institution: "Escuela Técnica N°1 Otto Krause", period: "2015 – 2020" },
+      { degree: "Ingeniería Informática", institution: "Universidad de Buenos Aires – FIUBA", period: "2024 – Actualidad" },
+      { degree: "Técnico Electrónico", institution: "Escuela Técnica N°1 Otto Krause", period: "2015 – 2020" },
     ],
     languages: [
       { language: "Español", level: "Nativo" },

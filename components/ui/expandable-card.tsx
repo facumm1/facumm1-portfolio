@@ -8,6 +8,7 @@ import { ImageCarousel } from "@/components/ui/image-carousel";
 import { useLanguage } from "@/contexts/language-context";
 
 interface ExperienceTranslations {
+  period: string;
   shortDescription: string;
   description: string;
   bullets: readonly string[];
@@ -92,7 +93,7 @@ export function ExperienceExpandableCard({
                     <p className="mt-0.5 text-sm text-muted">{experience.company}</p>
                   </div>
                   <div className="flex flex-col items-end gap-1.5 shrink-0">
-                    <span className="text-xs text-muted">{experience.period}</span>
+                    <span className="text-xs text-muted">{translations.period}</span>
                     <span
                       className={cn(
                         "rounded-full px-2 py-0.5 text-xs font-medium",

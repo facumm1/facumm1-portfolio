@@ -29,7 +29,7 @@ export function ExperienceCard({ experience, className }: ExperienceCardProps) {
               <h3 className="mt-1 font-heading text-lg font-700 text-foreground">{experience.title}</h3>
             </div>
             <div className="flex flex-col items-end gap-1 shrink-0">
-              <span className="text-xs text-muted whitespace-nowrap">{experience.period}</span>
+              <span className="text-xs text-muted whitespace-nowrap">{expT.period}</span>
               <span
                 className={cn(
                   "rounded-full px-2 py-0.5 text-xs font-medium",

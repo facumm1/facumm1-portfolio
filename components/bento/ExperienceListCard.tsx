@@ -21,7 +21,7 @@ export function ExperienceListCard() {
               <div
                 className={cn(
                   "group flex items-start justify-between gap-4 py-3.5 transition-opacity hover:opacity-75",
-                  i !== experiences.length - 1 && "border-b border-[var(--card-border)]"
+                  i !== experiences.length - 1 && "border-b border-card-border"
                 )}
               >
                 <div className="min-w-0 flex-1">
@@ -29,7 +29,7 @@ export function ExperienceListCard() {
                     <p className="font-heading text-sm font-semibold text-foreground">{exp.company}</p>
                     <span className="text-xs text-muted">·</span>
                     <p className="text-xs text-muted">{exp.title}</p>
-                    <span className="text-xs text-muted/50">{exp.period}</span>
+                    <span className="text-xs text-muted/50">{expT.period}</span>
                   </div>
                   <p className="mt-0.5 text-xs text-muted/60 line-clamp-1">{expT.shortDescription}</p>
                 </div>

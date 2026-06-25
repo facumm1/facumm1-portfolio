@@ -31,12 +31,12 @@ export function HeroCard() {
 
       <div>
         <div className="flex items-center gap-3">
-          {hero.openToWork && (
+          {/* {hero.openToWork && (
             <span className="flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-600 dark:text-emerald-400">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
               {t.ui.openToWork}
             </span>
-          )}
+          )} */}
           <span className="text-xs text-muted">{hero.location}</span>
         </div>
 
@@ -44,7 +44,7 @@ export function HeroCard() {
           {hero.name}
         </h1>
         <p className="mt-2 text-base font-medium text-muted">{t.hero.role}</p>
-        <p className="mt-3 max-w-sm text-sm text-foreground/65 leading-relaxed">{t.hero.description}</p>
+        {/* <p className="mt-3 max-w-sm text-sm text-foreground/65 leading-relaxed">{t.hero.description}</p> */}
       </div>
 
       <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
