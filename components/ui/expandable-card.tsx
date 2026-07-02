@@ -32,7 +32,9 @@ export function ExperienceExpandableCard({
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [open]);
 
   useEffect(() => {
@@ -66,34 +68,44 @@ export function ExperienceExpandableCard({
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 8 }}
               transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="relative z-10 w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl bg-card border border-card-border shadow-2xl"
+              className="bg-card border-card-border relative z-10 max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border shadow-2xl"
             >
               <button
                 onClick={() => setOpen(false)}
-                className="absolute left-4 top-4 z-20 flex h-8 w-8 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-sm transition-colors hover:bg-black/70"
+                className="absolute top-4 left-4 z-20 flex h-8 w-8 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-sm transition-colors hover:bg-black/70"
                 aria-label="Close"
               >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                >
                   <path d="M18 6L6 18M6 6l12 12" />
                 </svg>
               </button>
 
-              <ImageCarousel
-                images={experience.images}
-                alt={`${experience.company} preview`}
-                className="h-100 rounded-t-2xl"
-              />
+              {experience.images.length > 0 ? (
+                <ImageCarousel
+                  images={experience.images}
+                  alt={`${experience.company} preview`}
+                  className="h-100 rounded-t-2xl"
+                />
+              ) : <div className="h-10"></div>}
 
               <div className="p-6 pt-5">
                 <div className="flex items-start justify-between gap-4 pr-10">
                   <div>
-                    <h3 className="font-heading text-xl font-700 text-foreground leading-tight">
+                    <h3 className="font-heading font-700 text-foreground text-xl leading-tight">
                       {experience.title}
                     </h3>
-                    <p className="mt-0.5 text-sm text-muted">{experience.company}</p>
+                    <p className="text-muted mt-0.5 text-sm">{experience.company}</p>
                   </div>
-                  <div className="flex flex-col items-end gap-1.5 shrink-0">
-                    <span className="text-xs text-muted">{translations.period}</span>
+                  <div className="flex shrink-0 flex-col items-end gap-1.5">
+                    <span className="text-muted text-xs">{translations.period}</span>
                     <span
                       className={cn(
                         "rounded-full px-2 py-0.5 text-xs font-medium",
@@ -116,7 +128,7 @@ export function ExperienceExpandableCard({
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
-                        className="inline-flex items-center gap-1.5 rounded-lg border border-card-border px-2.5 py-1 text-xs text-muted transition-colors hover:border-foreground/20 hover:text-foreground"
+                        className="border-card-border text-muted hover:border-foreground/20 hover:text-foreground inline-flex items-center gap-1.5 rounded-lg border px-2.5 py-1 text-xs transition-colors"
                       >
                         {link.label}
                         <ExternalLinkIcon />
@@ -125,14 +137,14 @@ export function ExperienceExpandableCard({
                   </div>
                 )}
 
-                <p className="mt-1 text-sm leading-relaxed text-muted">
+                <p className="text-muted mt-1 text-sm leading-relaxed">
                   {translations.description}
                 </p>
 
                 <ul className="mt-4 space-y-2.5">
                   {translations.bullets.map((bullet, i) => (
-                    <li key={i} className="flex gap-3 text-sm text-foreground/80">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-foreground/30" />
+                    <li key={i} className="text-foreground/80 flex gap-3 text-sm">
+                      <span className="bg-foreground/30 mt-2 h-1.5 w-1.5 shrink-0 rounded-full" />
                       {bullet}
                     </li>
                   ))}
@@ -140,7 +152,10 @@ export function ExperienceExpandableCard({
 
                 <div className="mt-5 flex flex-wrap gap-1.5">
                   {experience.stack.map((tech) => (
-                    <span key={tech} className="rounded-md bg-muted-bg px-2.5 py-1 text-xs text-muted">
+                    <span
+                      key={tech}
+                      className="bg-muted-bg text-muted rounded-md px-2.5 py-1 text-xs"
+                    >
                       {tech}
                     </span>
                   ))}
@@ -156,7 +171,17 @@ export function ExperienceExpandableCard({
 
 function ExternalLinkIcon({ className }: { className?: string }) {
   return (
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
       <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
     </svg>
   );

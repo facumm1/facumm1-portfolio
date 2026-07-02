@@ -62,7 +62,7 @@ export const experiences: Experience[] = [
       "Extended backoffice features (Next.js) and backend services (NestJS, MongoDB, hexagonal architecture)",
     ],
     stack: ["React Native Expo", "Next.js", "NestJS", "MongoDB"],
-    images: ["/experience/apprendemos-1.webp", "/experience/apprendemos-2.webp", "/experience/apprendemos-3.webp", "/experience/apprendemos-4.webp"],
+    images: [],
     links: [
       { label: "Website", url: "https://underqubit.com" },
       { label: "App", url: "https://www.apprendemos.com" },
