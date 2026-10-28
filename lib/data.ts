@@ -23,13 +23,6 @@ export const currentlyWorking = {
   description: "Multi-tenant SaaS platform for the gastronomy sector.",
 }
 
-export const currentlyBuilding = {
-  name: "Menu Propio",
-  description: "Multi-tenant SaaS platform for the gastronomy sector.",
-  status: "Pre-launch in 1 month",
-  stack: ["Next.js", "Firebase", "Docker"],
-};
-
 export type Experience = {
   id: string;
   title: string;
@@ -72,10 +65,10 @@ export const experiences: Experience[] = [
     id: "exp-2",
     title: "Frontend Developer",
     company: "Menu Propio",
-    period: "01/2026 – Present",
+    period: "01/2026 – 09/2026",
     type: "Freelance",
     shortDescription: "Built a multi-tenant SaaS platform for restaurants from scratch.",
-    description: "A multi-tenant SaaS platform targeting the gastronomy sector. Two Next.js apps, Firebase-powered auth, and full CI/CD pipeline. Pre-launch in 1 month.",
+    description: "A multi-tenant SaaS platform targeting the gastronomy sector. Two Next.js apps, Firebase-powered auth, and full CI/CD pipeline.",
     bullets: [
       "Built two Next.js apps: tenant management dashboard and public-facing digital menu",
       "Developed modules for orders, products, categories, option groups, delivery zones, customers",
@@ -84,7 +77,11 @@ export const experiences: Experience[] = [
       "Set up CI/CD pipeline with GitHub Actions and Docker Compose for automated VPS deployment",
     ],
     stack: ["Next.js", "Firebase Auth", "GitHub Actions", "Docker"],
-    images: ["/experience/menupropio-1.png", "/experience/menupropio-2.png", "/experience/menupropio-3.png", "/experience/menupropio-4.png", "/experience/menupropio-5.png"],
+    images: [],
+    links: [
+      { label: "Website", url: "https://menupropio.com" },
+      { label: "Demo", url: "https://demo.menupropio.com/" },
+    ],
   },
   {
     id: "exp-3",

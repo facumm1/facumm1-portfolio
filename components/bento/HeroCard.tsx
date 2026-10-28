@@ -2,7 +2,7 @@
 
 import { useTheme } from "next-themes";
 import { SpotlightCard } from "@/components/ui/spotlight-card";
-import { hero, contact, currentlyBuilding, currentlyWorking } from "@/lib/data";
+import { hero, contact, currentlyWorking } from "@/lib/data";
 import { useLanguage } from "@/contexts/language-context";
 
 export function HeroCard() {
@@ -53,13 +53,6 @@ export function HeroCard() {
             <span className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse" />
             {t.ui.currentlyWorkingFor}{" "}
             <span className="font-medium text-foreground/70">{currentlyWorking.name}</span>
-          </div>
-
-          <div className="flex items-center gap-2 text-xs text-muted/60">
-            <span className="h-1.5 w-1.5 rounded-full bg-amber-500 animate-pulse" />
-            {t.ui.freelancingFor}{" "}
-            <span className="font-medium text-foreground/70">{currentlyBuilding.name}</span>
-            <span className="text-muted/40">— {t.currentlyBuilding.status}</span>
           </div>
         </div>
 

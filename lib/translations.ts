@@ -6,8 +6,6 @@ export const translations = {
       about: "About",
       education: "Education",
       languages: "Languages",
-      currentlyBuilding: "Currently building",
-      inProgress: "In progress",
       experience: "Experience",
       getInTouch: "Get in touch",
       letsBuild: "Let's build something together.",
@@ -16,7 +14,6 @@ export const translations = {
       techStack: "Tech stack",
       openToWork: "Open to work",
       currentlyWorkingFor: "Currently working for",
-      freelancingFor: "Freelancing for",
       fullTime: "Full-time",
       freelance: "Freelance",
       frontend: "Frontend",
@@ -29,11 +26,7 @@ export const translations = {
       description: "Building web & mobile products that people use.",
     },
     about: {
-      text: "Fullstack Developer with 3 years of experience building web and mobile applications, with a strong focus on frontend. Currently studying Computer Engineering at UBA (FIUBA). Moving towards software architecture and engineering best practices. Known for bridging the gap between technical implementation and user needs, translating complex solutions into clear, understandable outcomes for clients.",
-    },
-    currentlyBuilding: {
-      description: "Multi-tenant SaaS platform for the gastronomy sector.",
-      status: "Pre-launch in 1 month",
+      text: "Fullstack Developer with +3 years of experience building web and mobile applications, with a strong focus on frontend. Currently studying Computer Engineering at UBA. Moving towards software architecture and engineering best practices. Known for bridging the gap between technical implementation and user needs, translating complex solutions into clear, understandable outcomes for clients.",
     },
     experiences: {
       "exp-1": {
@@ -48,9 +41,9 @@ export const translations = {
         ],
       },
       "exp-2": {
-        period: "01/2026 – Present",
+        period: "01/2026 – 09/2026",
         shortDescription: "Built a multi-tenant SaaS platform for restaurants from scratch.",
-        description: "A multi-tenant SaaS platform targeting the gastronomy sector. Two Next.js apps, Firebase-powered auth, and full CI/CD pipeline. Pre-launch in 1 month.",
+        description: "A multi-tenant SaaS platform targeting the gastronomy sector. Two Next.js apps, Firebase-powered auth, and full CI/CD pipeline.",
         bullets: [
           "Built two Next.js apps: tenant management dashboard and public-facing digital menu",
           "Developed modules for orders, products, categories, option groups, delivery zones, customers",
@@ -81,7 +74,7 @@ export const translations = {
       },
     },
     education: [
-      { degree: "Computer Engineering", institution: "Universidad de Buenos Aires – FIUBA", period: "2024 – Present" },
+      { degree: "Computer Engineering", institution: "Universidad de Buenos Aires", period: "2024 – Present" },
       { degree: "Electronics Technician", institution: "Escuela Técnica N°1 Otto Krause", period: "2015 – 2020" },
     ],
     languages: [
@@ -94,8 +87,6 @@ export const translations = {
       about: "Sobre mí",
       education: "Educación",
       languages: "Idiomas",
-      currentlyBuilding: "Actualmente construyendo",
-      inProgress: "En progreso",
       experience: "Experiencia",
       getInTouch: "Contacto",
       letsBuild: "¿Tenés un proyecto en mente? Hablemos.",
@@ -104,7 +95,6 @@ export const translations = {
       techStack: "Tech Stack",
       openToWork: "Disponible",
       currentlyWorkingFor: "Actualmente trabajando en",
-      freelancingFor: "Freelance en",
       fullTime: "Tiempo completo",
       freelance: "Freelance",
       frontend: "Frontend",
@@ -117,11 +107,7 @@ export const translations = {
       description: "Construyendo productos web y móviles que la gente usa.",
     },
     about: {
-      text: "Desarrollador Fullstack con 3 años de experiencia construyendo aplicaciones web y mobile, con foco en frontend. Actualmente estudiando Ingeniería Informática en la UBA. Con interés en arquitectura de software y la experiencia de usuario. Me caracterizo por traducir complejidad técnica en valor concreto para el cliente."
-    },
-    currentlyBuilding: {
-      description: "Plataforma SaaS multi-tenant para el sector gastronómico.",
-      status: "Pre-launch en 1 mes",
+      text: "Desarrollador Fullstack con +3 años de experiencia construyendo aplicaciones web y mobile, con foco en frontend. Actualmente estudiando Ingeniería Informática en la UBA. Con interés en arquitectura de software y la experiencia de usuario. Me caracterizo por traducir complejidad técnica en valor concreto para el cliente."
     },
     experiences: {
       "exp-1": {
@@ -136,9 +122,9 @@ export const translations = {
         ],
       },
       "exp-2": {
-        period: "01/2026 – Actualidad",
+        period: "01/2026 – 09/2026",
         shortDescription: "Construí una plataforma SaaS multi-tenant para restaurantes desde cero.",
-        description: "Una plataforma SaaS multi-tenant orientada al sector gastronómico. Dos aplicaciones Next.js, autenticación con Firebase y pipeline completo de CI/CD. Pre-lanzamiento en 1 mes.",
+        description: "Una plataforma SaaS multi-tenant orientada al sector gastronómico. Dos aplicaciones Next.js, autenticación con Firebase y pipeline completo de CI/CD.",
         bullets: [
           "Construí dos apps Next.js: panel de gestión de tenants y menú digital público",
           "Desarrollé módulos para pedidos, productos, categorías, grupos de opciones, zonas de entrega y clientes",
@@ -169,7 +155,7 @@ export const translations = {
       },
     },
     education: [
-      { degree: "Ingeniería Informática", institution: "Universidad de Buenos Aires – FIUBA", period: "2024 – Actualidad" },
+      { degree: "Ingeniería Informática", institution: "Universidad de Buenos Aires", period: "2024 – Actualidad" },
       { degree: "Técnico Electrónico", institution: "Escuela Técnica N°1 Otto Krause", period: "2015 – 2020" },
     ],
     languages: [
